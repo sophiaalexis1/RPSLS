@@ -1,5 +1,10 @@
 class Player:
-    def __init__(self, name_passed) -> None:
-        name = name_passed
-        score = 0
-        choice = ['Rock','Paper', 'Scissors', 'Lizard', 'Spock']
+    def __init__(self, name_passed):
+        self.name = name_passed
+        self.score = 0
+        self.choice = ['Rock','Paper', 'Scissors', 'Lizard', 'Spock']
+
+    def update_score(self, result):
+        if result == 'win':
+            self.score += 1
+       
