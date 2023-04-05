@@ -17,9 +17,37 @@ class Game():
     def game_phase(self):
         self.number_of_players = input("How many players? 1 or 2 ")
         if self.number_of_players == "1":
-            self.human_player1.choose_move
-            self.ai1.choose_move
+            self.player1_choice = self.human_player1.choose_move()
+            self.player2_choice = self.ai1.choose_move()
         elif self.number_of_players == "2":
-            self.human_player1.choose_move
-            self.human_player2.choose_move
+            self.player1_choice = self.human_player1.choose_move()
+            self.player2_choice = self.human_player2.choose_move()
 
+    def determine_winner(self, player1_choice, player2_choice):
+        if player1_choice == player2_choice:
+            return 'draw'
+        elif player1_choice == 'rock':
+            if player2_choice == 'paper' or player2_choice == 'spock':
+                return 'lose'
+            else:
+                return 'wiin'
+        elif player1_choice == 'paper':
+            if player2_choice == 'scissors' or player2_choice == 'lizard':
+                return 'lose'
+            else:
+                return 'win'
+        elif player1_choice == 'scissors':
+            if player2_choice == 'rock' or player2_choice == 'spock':
+                return 'lose'
+            else:
+                return 'win'
+        elif player1_choice == 'lizard':
+            if player2_choice == 'rock' or player2_choice == 'scissors':
+                return 'lose'
+            else:
+                return 'win'
+        elif player1_choice == 'spock':
+            if player2_choice == 'paper' or player2_choice == 'lizard':
+                return 'lose'
+            else:
+                return 'win'
