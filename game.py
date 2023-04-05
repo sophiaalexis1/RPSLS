@@ -10,6 +10,7 @@ class Game():
     def run_game(self):
         self.display_welcome()
         self.game_phase()
+        self.result = self.determine_winner(self.player1_choice,self.player2_choice)
 
     def display_welcome(self):
         print("Welcome to Rock Paper Scissors Lizard Spock. \n\n Each match will be best out of three games. \n Use the number keys to enter your selction\n\n Scissors cut Paper \n Paper covers Rock \n Rock crushes Lizard \n Lizard poisons Spock \n Scissors decapitates Lizard \n Lizard eats Paper \n Paper disproves Spock \n Spock vaporizes Rock \n Rock crushes Scissors")
@@ -51,3 +52,4 @@ class Game():
                 return 'lose'
             else:
                 return 'win'
+        

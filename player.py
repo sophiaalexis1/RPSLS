@@ -7,4 +7,5 @@ class Player:
     def update_score(self, result):
         if result == 'win':
             self.score += 1
-       
+        elif result == 'lose':
+            self.score -= 0
