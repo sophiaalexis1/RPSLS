@@ -8,15 +8,18 @@ class Game():
         self.ai2 = AI('Computer 2')
 
     def run_game(self):
-        pass
+        self.display_welcome()
+        self.game_phase()
 
     def display_welcome(self):
         print("Welcome to Rock Paper Scissors Lizard Spock. \n\n Each match will be best out of three games. \n Use the number keys to enter your selction\n\n Scissors cut Paper \n Paper covers Rock \n Rock crushes Lizard \n Lizard poisons Spock \n Scissors decapitates Lizard \n Lizard eats Paper \n Paper disproves Spock \n Spock vaporizes Rock \n Rock crushes Scissors")
-    
-    def number_players(self):
-        self.number_of_players = input("How many players? 1 or 2")
+
+    def game_phase(self):
+        self.number_of_players = input("How many players? 1 or 2 ")
         if self.number_of_players == "1":
-            run_game(human_ai)
+            self.human_player1.choose_move
+            self.ai1.choose_move
         elif self.number_of_players == "2":
-            run_game(humann_human)
+            self.human_player1.choose_move
+            self.human_player2.choose_move
 
