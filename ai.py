@@ -6,4 +6,5 @@ class AI(Player):
     
     def choose_move(self):
         move = random.choice(self.choice)
+        print(f"Ai has picked {move}.")
         return move

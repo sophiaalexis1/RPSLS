@@ -4,5 +4,9 @@ class Human(Player):
         super().__init__(name_passed)
     
     def choose_move(self):
-        move = input("\n Choose 0 for Rock. \n Choose 1 for Paper. \n Choose 2 for Scissors. \n Choose 3 for Lizard \n Choose 4 for Spock. \n Choose your move: ")
-        return move
+        print("\n Choose 0 for Rock. \n Choose 1 for Paper. \n Choose 2 for Scissors. \n Choose 3 for Lizard \n Choose 4 for Spock. \n")
+        move = int(input('Choose your move: '))
+        player_choice = self.choice[move]
+        print(f"Player choose {player_choice}")
+        return player_choice
+       
