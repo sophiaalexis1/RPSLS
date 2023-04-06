@@ -10,6 +10,7 @@ class Game():
     def run_game(self):
         self.display_welcome()
         self.game_phase()
+        self.play_again()
         
 
     def display_welcome(self):
@@ -21,6 +22,15 @@ class Game():
             self.one_player_game()
         elif self.number_of_players == "2":
             self.two_player_game()
+    
+    def play_again(self): 
+        self.play_again = input("Would you like to play again? Y or N ")
+        if self.play_again == 'Y':
+            self.player1.score = 0
+            self.player2.score = 0
+            self.run_game()
+        else:
+            print("Thanks for playing!")
 
     def one_player_game(self):
         self.player1 = self.human_player1
