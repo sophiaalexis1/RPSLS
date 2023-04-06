@@ -18,17 +18,33 @@ class Game():
     def game_phase(self):
         self.number_of_players = input("How many players? 1 or 2 ")
         if self.number_of_players == "1":
-            self.player1 = self.human_player1
-            self.player2 = self.ai1
+            self.one_player_game()
+        elif self.number_of_players == "2":
+            self.two_player_game()
+
+    def one_player_game(self):
+        self.player1 = self.human_player1
+        self.player2 = self.ai1
+        while self.player1.score < 2 and self.player2.score < 2:
             self.player1_choice = self.human_player1.choose_move()
             self.player2_choice = self.ai1.choose_move()
             self.result = self.determine_winner(self.player1_choice,self.player2_choice)
-        elif self.number_of_players == "2":
-            self.player1 = self.human_player1
-            self.player2 = self.human_player2
+            if self.player1.score == 2:
+                print(f"/n{self.player1.name} wins the game!")
+            elif self.player2.score == 2:
+                print(f"/n{self.player2.name} winse the game!")
+
+    def two_player_game(self):
+        self.player1 = self.human_player1
+        self.player2 = self.human_player2
+        while self.player1.score < 2 and self.player2.score < 2:
             self.player1_choice = self.human_player1.choose_move()
             self.player2_choice = self.human_player2.choose_move()
             self.result = self.determine_winner(self.player1_choice,self.player2_choice)
+            if self.player1.score == 2:
+                print(f"/n{self.player1.name} wins the game!")
+            elif self.player2.score == 2:
+                print(f"/n{self.player2.name} winse the game!")
 
     def determine_winner(self, player1_choice, player2_choice):
         if player1_choice == player2_choice:
