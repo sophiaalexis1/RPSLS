@@ -13,51 +13,72 @@ class Game():
         
 
     def display_welcome(self):
-        print("Welcome to Rock Paper Scissors Lizard Spock. \n\n Each match will be best out of three games. \n Use the number keys to enter your selction\n\n Scissors cut Paper \n Paper covers Rock \n Rock crushes Lizard \n Lizard poisons Spock \n Scissors decapitates Lizard \n Lizard eats Paper \n Paper disproves Spock \n Spock vaporizes Rock \n Rock crushes Scissors")
+        print("Welcome to Rock Paper Scissors Lizard Spock. \n\n Each match will be best out of three games. \n Use the number keys to enter your selction\n\n Scissors cut Paper \n Paper covers Rock \n Rock crushes Lizard \n Lizard poisons Spock \n Scissors decapitates Lizard \n Lizard eats Paper \n Paper disproves Spock \n Spock vaporizes Rock \n Rock crushes Scissors\n")
 
     def game_phase(self):
         self.number_of_players = input("How many players? 1 or 2 ")
         if self.number_of_players == "1":
-            while self.ai1.score < 2 and self.human_player1.score < 2 == False:
-                self.player1_choice = self.human_player1.choose_move()
-                self.player2_choice = self.ai1.choose_move()
-                self.result = self.determine_winner(self.player1_choice,self.player2_choice)
-                self.human_player1.update_score(self.result)
-                self.ai1.update_score(self.result)
+            self.player1 = self.human_player1
+            self.player2 = self.ai1
+            self.player1_choice = self.human_player1.choose_move()
+            self.player2_choice = self.ai1.choose_move()
+            self.result = self.determine_winner(self.player1_choice,self.player2_choice)
         elif self.number_of_players == "2":
-            while self.human_player1.score < 2 and self.human_player2.score < 2 == False:
-                self.player1_choice = self.human_player1.choose_move()
-                self.player2_choice = self.human_player2.choose_move()
-                self.result = self.determine_winner(self.player1_choice,self.player2_choice)
-                self.human_player1.update_score(self.result)
-                self.human_player2.update_score(self.result)
+            self.player1 = self.human_player1
+            self.player2 = self.human_player2
+            self.player1_choice = self.human_player1.choose_move()
+            self.player2_choice = self.human_player2.choose_move()
+            self.result = self.determine_winner(self.player1_choice,self.player2_choice)
 
     def determine_winner(self, player1_choice, player2_choice):
         if player1_choice == player2_choice:
+            print("The round is a draw!")
+            self.player1.update_score('lose')
+            self.player2.update_score('lose')
             return 'draw'
-        elif player1_choice == 'rock':
-            if player2_choice == 'paper' or player2_choice == 'spock':
+        elif player1_choice == 'Rock':
+            if player2_choice == 'Paper' or player2_choice == 'Spock':
+                print(f"{self.player2.name} wins the round!")
+                self.player2.update_score('win')
                 return 'lose'
             else:
-                return 'wiin'
-        elif player1_choice == 'paper':
-            if player2_choice == 'scissors' or player2_choice == 'lizard':
-                return 'lose'
-            else:
+                print(f"{self.player1.name} wins the round!")
+                self.player1.update_score('win')
                 return 'win'
-        elif player1_choice == 'scissors':
-            if player2_choice == 'rock' or player2_choice == 'spock':
+        elif player1_choice == 'Paper':
+            if player2_choice == 'Scissors' or player2_choice == 'Lizard':
+                print(f"{self.player2.name} wins the round!")
+                self.player2.update_score('win')
                 return 'lose'
             else:
+                print(f"{self.player1.name} wins the round!")
+                self.player1.update_score('win')
                 return 'win'
-        elif player1_choice == 'lizard':
-            if player2_choice == 'rock' or player2_choice == 'scissors':
+        elif player1_choice == 'Scissors':
+            if player2_choice == 'Rock' or player2_choice == 'Spock':
+                print(f"{self.player2.name} wins the round!")
+                self.player2.update_score('win')
                 return 'lose'
             else:
+                print(f"{self.player1.name} wins the round!")
+                self.player1.update_score('win')
                 return 'win'
-        elif player1_choice == 'spock':
-            if player2_choice == 'paper' or player2_choice == 'lizard':
+        elif player1_choice == 'Lizard':
+            if player2_choice == 'Rock' or player2_choice == 'Scissors':
+                print(f"{self.player2.name} wins the round!")
+                self.player2.update_score('win')
                 return 'lose'
             else:
+                print(f"{self.player1.name} wins the round!")
+                self.player1.update_score('win')
+                return 'win'
+        elif player1_choice == 'Spock':
+            if player2_choice == 'Paper' or player2_choice == 'Lizard':
+                print(f"{self.player2.name} wins the round!")
+                self.player2.update_score('win')
+                return 'lose'
+            else:
+                print(f"{self.player1.name} wins the round!")
+                self.player1.update_score('win')
                 return 'win'
         
