@@ -10,8 +10,8 @@ class Game():
     def run_game(self):
         self.display_welcome()
         self.game_phase()
-        self.play_again()
-        
+        self.again()
+    
 
     def display_welcome(self):
         print("Welcome to Rock Paper Scissors Lizard Spock. \n\n Each match will be best out of three games. \n Use the number keys to enter your selction\n\n Scissors cut Paper \n Paper covers Rock \n Rock crushes Lizard \n Lizard poisons Spock \n Scissors decapitates Lizard \n Lizard eats Paper \n Paper disproves Spock \n Spock vaporizes Rock \n Rock crushes Scissors\n")
@@ -23,9 +23,9 @@ class Game():
         elif self.number_of_players == "2":
             self.two_player_game()
     
-    def play_again(self): 
-        self.play_again = input("Would you like to play again? Y or N ")
-        if self.play_again == 'Y':
+    def again(self): 
+        self.play_again = input("\nWould you like to play again? y or n ")
+        if self.play_again == 'y':
             self.player1.score = 0
             self.player2.score = 0
             self.run_game()
@@ -40,9 +40,9 @@ class Game():
             self.player2_choice = self.ai1.choose_move()
             self.result = self.determine_winner(self.player1_choice,self.player2_choice)
             if self.player1.score == 2:
-                print(f"/n{self.player1.name} wins the game!")
+                print(f"\n{self.player1.name} wins the game!")
             elif self.player2.score == 2:
-                print(f"/n{self.player2.name} winse the game!")
+                print(f"\n{self.player2.name} winse the game!")
 
     def two_player_game(self):
         self.player1 = self.human_player1
@@ -52,9 +52,9 @@ class Game():
             self.player2_choice = self.human_player2.choose_move()
             self.result = self.determine_winner(self.player1_choice,self.player2_choice)
             if self.player1.score == 2:
-                print(f"/n{self.player1.name} wins the game!")
+                print(f"\n{self.player1.name} wins the game!")
             elif self.player2.score == 2:
-                print(f"/n{self.player2.name} winse the game!")
+                print(f"\n{self.player2.name} winse the game!")
 
     def determine_winner(self, player1_choice, player2_choice):
         if player1_choice == player2_choice:
